@@ -11,8 +11,10 @@
 <body>
 <div id="addSubjectForm">
   <input type="text" id="subjectInput" placeholder="Enter Subject"><br>
-  <input type="text" id="pinInput" placeholder="Enter Pin">
-  <button onclick="addSubject()" id="pi">Add Subject</button>
+  <input type="text" id="pinInput" placeholder="Enter Pin"><br>
+  
+  <button onclick="addSubject()" id="pi">Add Subject</button><br>
+
 </div>
 
 <table id="subjectTable" class="table table-striped">
@@ -22,7 +24,109 @@
       <th scope="col">Pin</th>
     </tr>
   </thead>
+  <!-- Example 
+  
+   <tbody>
+  	<td>Subject here</td>
+  	<td>pin here</td>
+  </tbody>
+  -->
+  
+  
+  
+  <!-- start editing -->
   <tbody>
+  	<td>Physics (Essay and obj)</td>
+  	<td>803</td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+  	
+  	  <tbody>
+  	<td></td>
+  	<td></td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+  	
+  <tbody>
+  	<td></td>
+  	<td></td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+  	
+  <tbody>
+  	<td></td>
+  	<td></td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+  	
+  <tbody>
+  	<td></td>
+  	<td></td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+  	
+  <tbody>
+  	<td></td>
+  	<td></td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+  	
+  <tbody>
+  	<td></td>
+  	<td></td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+
+  	  <tbody>
+  	<td></td>
+  	<td></td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+  	
+  <tbody>
+  	<td></td>
+  	<td></td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+  	
+  <tbody>
+  	<td></td>
+  	<td></td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+  	
+  <tbody>
+  	<td></td>
+  	<td></td>
+  </tbody>
+  
+  		<td></td>
+  	<td></td>
+
+  	<!--End of editing -->
+  	
+  	
+  	
     <!-- Rows will be dynamically added here -->
   </tbody>
 </table>
@@ -80,7 +184,26 @@
         document.getElementById("subjectTable").getElementsByTagName("tbody")[0].appendChild(newRow);
       });
     }
-  }
+  function searchSubjects() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("subjectTable");
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0]; // Index 0 for subject column, change it if needed
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
 </script>
 
 </body>
